@@ -194,10 +194,10 @@ export function Settings() {
   const updateStore = useUpdateStore();
   const [checkingUpdate, setCheckingUpdate] = useState(false);
   const currentVersion = updateStore.version;
-  const remoteId = updateStore.remoteVersion;
+  const remoteId = updateStore.version;
   const hasNewVersion = currentVersion !== remoteId;
 
-  function checkUpdate(force = true) {
+  function checkUpdate(force = false) {
     setCheckingUpdate(true);
     updateStore.getLatestVersion(force).then(() => {
       setCheckingUpdate(false);
